@@ -1,0 +1,10 @@
+Tareas a realizar perron
+______________________________
+- Validar todos los formularios de edicion y ingreso, que ningun campo sea vacio y dar un mensaje
+-que al eliminar de una aletra de confirmacion y elimine
+-Que al ternero se le sumen todos los dias al campo peso_actu el campo kg_diario de la tabla dosis hasta llegar a 250
+y cambie de estado a "a venta"
+-que cada tabla pueda buscar un registro
+-que en cada sub menu de ternero se pueda buscar entre dos fechas y se pueda generar un reporte de 
+esas tablas 
+___________________________________________________________________________________________________
