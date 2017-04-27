@@ -1,11 +1,11 @@
 <?php
-$mysqli=new mysqli("localhost","root","3005","vertientes");
+$mysqli=new mysqli("localhost","root","123456789","vertientes");
 $query="SELECT id_dosis,nombre FROM dosis";
 $resultado=$mysqli->query($query);
 ?>
 
 <?php
-$mysqli2=new mysqli("localhost","root","3005","vertientes");
+$mysqli2=new mysqli("localhost","root","123456789","vertientes");
 $query2="SELECT id_raza,nom_r FROM raza";
 $resultado2=$mysqli2->query($query2);
 ?>
@@ -14,6 +14,7 @@ $resultado2=$mysqli2->query($query2);
 <html>
 <head>
   <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="semantic.css">
   <script src="semantic.js"></script>
   <link href="css/layout.css" rel="stylesheet" type="text/css" />
@@ -59,9 +60,31 @@ $resultado2=$mysqli2->query($query2);
 
             <div class="field">
               <label>DIIO</label>
-              <input type="text" name="arete" required="" placeholder="Numero Arete">
+              <input type="text" name="arete" id="rut" required="" placeholder="Numero Arete">
             </div>
+            <div id="Info"></div>
+            <br>
+            <br>
+ <script type="text/javascript">
+$(document).ready(function() {    
+    $('#rut').blur(function(){
 
+        $('#Info').html('<b>Cargando...</b>').fadeOut(1000);
+
+        var rut = $(this).val();        
+        var dataString = 'rut='+rut;
+
+        $.ajax({
+            type: "POST",
+            url: "check.php",
+            data: dataString,
+            success: function(data) {
+                $('#Info').fadeIn(1000).html(data);
+            }
+        });
+    });              
+});    
+</script>
              <div class="field">
               <label>Fecha nacimiento</label>
               <input type="date" name="fecha" required="">

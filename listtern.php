@@ -1,5 +1,5 @@
 <?php
-$mysqli=new mysqli("localhost","root","3005","vertientes");
+$mysqli=new mysqli("localhost","root","123456789","vertientes");
 $query="SELECT
 terneros.arete,
 terneros.fech_nac,
